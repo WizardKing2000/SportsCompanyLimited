@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f78235be259b4ef295087bea42d1e4a4" Name="Diagram1">
+        <EntityTypeShape EntityType="SportsLimitedModel.ItemRecord" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportsLimitedModel.TypesofItem" Width="1.5" PointX="0.875" PointY="1.25" IsExpanded="true" />
+        <AssociationConnector Association="SportsLimitedModel.FK_ItemRecord_ItemRecord" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SportsLimitedModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ItemRecord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Category" Type="nvarchar" MaxLength="100" />
+          <Property Name="Brand" Type="nvarchar" MaxLength="50" />
+          <Property Name="Size" Type="int" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="Cost" Type="float" />
+          <Property Name="TypeofItemId" Type="int" />
+        </EntityType>
+        <EntityType Name="TypesofItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Model" Type="nvarchar" MaxLength="50" />
+          <Property Name="Year" Type="int" />
+        </EntityType>
+        <Association Name="FK_ItemRecord_ItemRecord">
+          <End Role="TypesofItem" Type="Self.TypesofItem" Multiplicity="0..1" />
+          <End Role="ItemRecord" Type="Self.ItemRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypesofItem">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ItemRecord">
+              <PropertyRef Name="TypeofItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SportsLimitedModelStoreContainer">
+          <EntitySet Name="ItemRecord" EntityType="Self.ItemRecord" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypesofItem" EntityType="Self.TypesofItem" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ItemRecord_ItemRecord" Association="Self.FK_ItemRecord_ItemRecord">
+            <End Role="TypesofItem" EntitySet="TypesofItem" />
+            <End Role="ItemRecord" EntitySet="ItemRecord" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SportsLimitedModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ItemRecord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Category" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Size" Type="Int32" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="Cost" Type="Double" />
+          <Property Name="TypeofItemId" Type="Int32" />
+          <NavigationProperty Name="TypesofItem" Relationship="Self.FK_ItemRecord_ItemRecord" FromRole="ItemRecord" ToRole="TypesofItem" />
+        </EntityType>
+        <EntityType Name="TypesofItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ItemRecords" Relationship="Self.FK_ItemRecord_ItemRecord" FromRole="TypesofItem" ToRole="ItemRecord" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Year" Type="Int32" />
+        </EntityType>
+        <Association Name="FK_ItemRecord_ItemRecord">
+          <End Role="TypesofItem" Type="Self.TypesofItem" Multiplicity="0..1" />
+          <End Role="ItemRecord" Type="Self.ItemRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypesofItem">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ItemRecord">
+              <PropertyRef Name="TypeofItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SportsLimitedEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ItemRecords" EntityType="Self.ItemRecord" />
+          <EntitySet Name="TypesofItems" EntityType="Self.TypesofItem" />
+          <AssociationSet Name="FK_ItemRecord_ItemRecord" Association="Self.FK_ItemRecord_ItemRecord">
+            <End Role="TypesofItem" EntitySet="TypesofItems" />
+            <End Role="ItemRecord" EntitySet="ItemRecords" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SportsLimitedModelStoreContainer" CdmEntityContainer="SportsLimitedEntities">
+          <EntitySetMapping Name="ItemRecords">
+            <EntityTypeMapping TypeName="SportsLimitedModel.ItemRecord">
+              <MappingFragment StoreEntitySet="ItemRecord">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="TypeofItemId" ColumnName="TypeofItemId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypesofItems">
+            <EntityTypeMapping TypeName="SportsLimitedModel.TypesofItem">
+              <MappingFragment StoreEntitySet="TypesofItem">
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
