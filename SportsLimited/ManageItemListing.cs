@@ -59,21 +59,19 @@ namespace SportsLimited
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var id = (int)gvItemList.SelectedRows[0].Cells["Id"].Value;
-                var item = _db.TypesofItems.FirstOrDefault(q => q.Id == id);
-                _db.ItemRecords.Remove(items);
-                _db.SaveChanges();
-                gvItemList.Refresh();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            
-
-        }
+{
+    try
+    {
+        var id = (int)gvItemList.SelectedRows[0].Cells["ID"].Value;
+        var item = _db.TypesofItems.FirstOrDefault(q => q.Id == id);
+        _db.TypesofItems.Remove(item);
+        _db.SaveChanges();
+        gvItemList.DataSource = _db.TypesofItems.Select(q => new { ID = q.Id, ItemName = q.Name, model = q.Model, year = q.Year }).ToList();
     }
+    catch (Exception ex)
+    {
+        MessageBox.Show(ex.Message);
+    }
+}
+
 }
