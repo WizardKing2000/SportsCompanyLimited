@@ -15,31 +15,27 @@ namespace SportsLimited
 
         private readonly SportsLimitedEntities _db = new SportsLimitedEntities();
         private bool isEditMode;
-        public FrmAddItemRecord(TypesofItem item)
+        public FrmAddItemRecord()
         {
             InitializeComponent();
             lblProItem.Text = "Add new Product or Item";
             isEditMode = false;
         }
 
-        public FrmAddItemRecord(FrmItem itemToEdit)
+        public FrmAddItemRecord(TypesofItem itemToEdit)
         {
             InitializeComponent();
             lblProItem.Text = "Edit Product or Item";
-            PopulateField(itemToEdit);
+            PopulateFields(itemToEdit);
             isEditMode = true;
         }
 
-        public FrmAddItemRecord()
-        {
-        }
-
-        private void PopulateField(FrmItem item)
+        private void PopulateFields(TypesofItem item)
         {
             lblId.Text = item.Id.ToString();
-            tbName.Text = item.Name;
-            tbModel.Text = item.Model.ToString();
-            tbYear.Text = item.Year.ToString(); 
+            tbName.Text =item.Name;
+            tbModel.Text =item.Model;
+            tbYear.Text = item.Year.ToString();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -66,9 +62,9 @@ namespace SportsLimited
                 var newItem = new TypesofItem
                 {
                     Name = tbName.Text,
-                Model = tbModel.Text,
-                Year = int.Parse(tbYear.Text)
-            };
+                    Model = tbModel.Text,
+                    Year = int.Parse(tbYear.Text)
+                };
 
                 _db.TypesofItems.Add(newItem);  
                 _db.SaveChanges();
@@ -78,6 +74,11 @@ namespace SportsLimited
         private void btnCancle_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void lblId_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

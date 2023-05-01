@@ -39,6 +39,7 @@ namespace SportsLimited
             var addItemRecord = new FrmAddItemRecord();
             addItemRecord.MdiParent = this.MdiParent;
             addItemRecord.Show();
+            MessageBox.Show("Item added Successfully.");
         }
 
         private void btnEditItem_Click(object sender, EventArgs e)
@@ -50,6 +51,7 @@ namespace SportsLimited
                 var addItemRecord = new FrmAddItemRecord(items);
                 addItemRecord.MdiParent = this.MdiParent;
                 addItemRecord.Show();
+                MessageBox.Show("Item edited Successfully.");
             }
             catch (Exception ex)
             {
@@ -64,15 +66,21 @@ namespace SportsLimited
             {
                 var id = (int)gvItemList.SelectedRows[0].Cells["Id"].Value;
                 var item = _db.TypesofItems.FirstOrDefault(q => q.Id == id);
-                _db.ItemRecords.Remove(items);
+                _db.TypesofItems.Remove(item);
                 _db.SaveChanges();
                 gvItemList.Refresh();
+                MessageBox.Show("Item delete Successfully.");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            
+
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            FrmManageItemListing_Load(this, EventArgs.Empty);
 
         }
     }

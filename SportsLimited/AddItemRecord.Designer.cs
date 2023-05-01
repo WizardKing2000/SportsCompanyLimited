@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tbYear = new System.Windows.Forms.TextBox();
+            this.tbModel = new System.Windows.Forms.TextBox();
+            this.lblYear = new System.Windows.Forms.Label();
+            this.lblModel = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
+            this.tbName = new System.Windows.Forms.TextBox();
             this.btnSaveChanges = new System.Windows.Forms.Button();
             this.btnCancle = new System.Windows.Forms.Button();
             this.lblProItem = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
-            this.lblModel = new System.Windows.Forms.Label();
-            this.lblYear = new System.Windows.Forms.Label();
-            this.tbName = new System.Windows.Forms.TextBox();
-            this.tbModel = new System.Windows.Forms.TextBox();
-            this.tbYear = new System.Windows.Forms.TextBox();
             this.lblId = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -62,6 +62,54 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 63F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(667, 302);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // tbYear
+            // 
+            this.tbYear.Location = new System.Drawing.Point(336, 157);
+            this.tbYear.Name = "tbYear";
+            this.tbYear.Size = new System.Drawing.Size(222, 22);
+            this.tbYear.TabIndex = 7;
+            // 
+            // tbModel
+            // 
+            this.tbModel.Location = new System.Drawing.Point(336, 80);
+            this.tbModel.Name = "tbModel";
+            this.tbModel.Size = new System.Drawing.Size(222, 22);
+            this.tbModel.TabIndex = 6;
+            // 
+            // lblYear
+            // 
+            this.lblYear.AutoSize = true;
+            this.lblYear.Location = new System.Drawing.Point(3, 154);
+            this.lblYear.Name = "lblYear";
+            this.lblYear.Size = new System.Drawing.Size(36, 16);
+            this.lblYear.TabIndex = 4;
+            this.lblYear.Text = "Year";
+            // 
+            // lblModel
+            // 
+            this.lblModel.AutoSize = true;
+            this.lblModel.Location = new System.Drawing.Point(3, 77);
+            this.lblModel.Name = "lblModel";
+            this.lblModel.Size = new System.Drawing.Size(45, 16);
+            this.lblModel.TabIndex = 2;
+            this.lblModel.Text = "Model";
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(3, 0);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(44, 16);
+            this.lblName.TabIndex = 1;
+            this.lblName.Text = "Name";
+            // 
+            // tbName
+            // 
+            this.tbName.Location = new System.Drawing.Point(336, 3);
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(222, 22);
+            this.tbName.TabIndex = 5;
             // 
             // btnSaveChanges
             // 
@@ -93,54 +141,6 @@
             this.lblProItem.TabIndex = 10;
             this.lblProItem.Text = "Add Products Items";
             // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(3, 0);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(44, 16);
-            this.lblName.TabIndex = 1;
-            this.lblName.Text = "Name";
-            // 
-            // lblModel
-            // 
-            this.lblModel.AutoSize = true;
-            this.lblModel.Location = new System.Drawing.Point(3, 77);
-            this.lblModel.Name = "lblModel";
-            this.lblModel.Size = new System.Drawing.Size(45, 16);
-            this.lblModel.TabIndex = 2;
-            this.lblModel.Text = "Model";
-            // 
-            // lblYear
-            // 
-            this.lblYear.AutoSize = true;
-            this.lblYear.Location = new System.Drawing.Point(3, 154);
-            this.lblYear.Name = "lblYear";
-            this.lblYear.Size = new System.Drawing.Size(36, 16);
-            this.lblYear.TabIndex = 4;
-            this.lblYear.Text = "Year";
-            // 
-            // tbName
-            // 
-            this.tbName.Location = new System.Drawing.Point(336, 3);
-            this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(222, 22);
-            this.tbName.TabIndex = 5;
-            // 
-            // tbModel
-            // 
-            this.tbModel.Location = new System.Drawing.Point(336, 80);
-            this.tbModel.Name = "tbModel";
-            this.tbModel.Size = new System.Drawing.Size(222, 22);
-            this.tbModel.TabIndex = 6;
-            // 
-            // tbYear
-            // 
-            this.tbYear.Location = new System.Drawing.Point(336, 157);
-            this.tbYear.Name = "tbYear";
-            this.tbYear.Size = new System.Drawing.Size(222, 22);
-            this.tbYear.TabIndex = 7;
-            // 
             // lblId
             // 
             this.lblId.AutoSize = true;
@@ -150,6 +150,7 @@
             this.lblId.TabIndex = 11;
             this.lblId.Text = "label1";
             this.lblId.Visible = false;
+            this.lblId.Click += new System.EventHandler(this.lblId_Click);
             // 
             // FrmAddItemRecord
             // 

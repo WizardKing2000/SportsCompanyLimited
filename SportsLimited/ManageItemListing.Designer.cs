@@ -33,6 +33,7 @@
             this.btnAddItem = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEditItem = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gvItemList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,7 +71,7 @@
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(477, 371);
+            this.btnDelete.Location = new System.Drawing.Point(431, 371);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(70, 31);
             this.btnDelete.TabIndex = 13;
@@ -89,11 +90,23 @@
             this.btnEditItem.UseVisualStyleBackColor = true;
             this.btnEditItem.Click += new System.EventHandler(this.btnEditItem_Click);
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.Location = new System.Drawing.Point(541, 374);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(93, 28);
+            this.btnRefresh.TabIndex = 15;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // FrmManageItemListing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(857, 514);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnEditItem);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAddItem);
@@ -115,5 +128,6 @@
         private System.Windows.Forms.Button btnAddItem;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnEditItem;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }
