@@ -53,7 +53,7 @@ namespace SportsLimited
                 {
 
 
-                    MessageBox.Show("Account Succefully Added");
+                    MessageBox.Show("Account Successfully Added");
 
                     //MessageBox.Show($"Category:{category}\n\r" + $"Product Brand:{brand}\n\r" + $":{brand}\n\r" +
                     //$"Size:{size}\n\r" + $"Quantity:{quantity}\n\r" + $"Cost:{cost}\n\r" + $"Order was placed Successfully");
