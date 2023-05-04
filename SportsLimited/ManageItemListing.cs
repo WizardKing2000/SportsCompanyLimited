@@ -66,21 +66,15 @@ namespace SportsLimited
             {
                 var id = (int)gvItemList.SelectedRows[0].Cells["Id"].Value;
                 var item = _db.TypesofItems.FirstOrDefault(q => q.Id == id);
-                _db.TypesofItems.Remove(item);
+                _db.ItemRecords.Remove(items);
                 _db.SaveChanges();
                 gvItemList.Refresh();
-                MessageBox.Show("Item delete Successfully.");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
-        }
-
-        private void btnRefresh_Click(object sender, EventArgs e)
-        {
-            FrmManageItemListing_Load(this, EventArgs.Empty);
+            
 
         }
     }
